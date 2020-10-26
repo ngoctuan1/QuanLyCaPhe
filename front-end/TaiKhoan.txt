@@ -1,0 +1,4 @@
+Quyền		User		Pass
+Admin		ADMIN		admin123
+Quản lý		QUANLY104	ql104
+Nhân viên		NHANVIEN102	nv102
