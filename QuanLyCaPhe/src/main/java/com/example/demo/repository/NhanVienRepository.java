@@ -1,9 +1,10 @@
 package com.example.demo.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import com.example.demo.entities.NhanVien;
 
-public interface NhanVienRepository extends CrudRepository<NhanVien, String>{
+@Repository("nhanVienRepository")
+public interface NhanVienRepository extends BaseRepository<NhanVien> {
 
 }

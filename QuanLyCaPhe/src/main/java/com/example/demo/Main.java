@@ -24,13 +24,14 @@ public class Main {
 			System.out.println(kh.toString());
 		}
 
-		KhachHang kh = new KhachHang();
-		khService.save(kh);
-		System.out.println(kh.toString());
+		
+		
+//		KhachHang kh = new KhachHang();
+//		khService.save(kh);
+//		System.out.println(kh.toString());
 
 //		lsgService = (BaseService<LichSuGia>) context.getBean("lichSuGiaService");
-
-//		LichSuGia lsg1 = new LichSuGia("LSG103", 20, 30, Calendar.getInstance().getTime());
+//		LichSuGia lsg1 = new LichSuGia("LSG103", 120, 30, Calendar.getInstance().getTime());
 //		lsgService.save(lsg1);
 //		lsg1.setMaHH("LSG101");
 //		lsgService.save(lsg1);

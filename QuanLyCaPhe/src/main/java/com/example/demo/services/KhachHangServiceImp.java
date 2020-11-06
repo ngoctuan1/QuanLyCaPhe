@@ -21,6 +21,7 @@ public class KhachHangServiceImp implements BaseService<KhachHang> {
 	public Iterable<KhachHang> findAll() {
 		// TODO Auto-generated method stub
 		return repo.findAll();
+
 	}
 
 	@Override

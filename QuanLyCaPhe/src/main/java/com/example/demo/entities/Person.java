@@ -1,50 +1,90 @@
 package com.example.demo.entities;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+
 public class Person {
-	private String ma;
+
+	final long serialVersionUID = 1L;
+
+	@Id
+	@Column(name = "MaKH")
+	private String maKH;
+
+	@Column(name = "Ho")
 	private String ho;
+
+	@Column(name = "Ten")
 	private String ten;
+
+	@Column(name = "ngaySinh")
+	private Date ngaySinh;
+
+	@Column(name = "capDo")
+	private int capDo;
+
+	@Column(name = "diemTichLuy")
+	private int diemTichLuy;
+
+	@Column(name = "diaChi")
 	private String diaChi;
+
+	@Column(name = "gioiTinh")
+	private int gioiTinh;
+
+	@Column(name = "soDT")
 	private String soDT;
 
-	private Date ngaySinh;
-	private int gioiTinh, trangThai;
+	@Column(name = "trangThai")
+	private int trangThai;
+
+	private static int Ids = 0;
+
+	public Person(String maKH, String ho, String ten, Date ngaySinh, int capDo, int diemTichLuy, String diaChi,
+			int gioiTinh, String soDT, int trangThai) {
+		this.maKH = maKH;
+		this.ho = ho;
+		this.ten = ten;
+		this.ngaySinh = ngaySinh;
+		this.capDo = capDo;
+		this.diemTichLuy = diemTichLuy;
+		this.diaChi = diaChi;
+		this.gioiTinh = gioiTinh;
+		this.soDT = soDT;
+		this.trangThai = trangThai;
+//		KhachHang.sId++;
+	}
 
 	public Person() {
 		super();
 		// TODO Auto-generated constructor stub
-		ma = "";
-		ho = "Nguyen";
-		ten = "A";
-		diaChi = "VN";
-		soDT = "0123456789";
 
-		ngaySinh = new Date(2020, 1, 1);
-		gioiTinh = 0;
-		trangThai = 1;
+		this.ho = "Nguyen";
+		this.ten = "Test";
+		this.ngaySinh = Calendar.getInstance().getTime();
+		this.capDo = 0;
+		this.diemTichLuy = 0;
+		this.diaChi = "aa";
+		this.gioiTinh = 0;
+		this.trangThai = 0;
+		this.soDT = "021";
+		this.maKH = getStaticMaKH();
 	}
 
-	public Person(String ma, String ho, String ten, String diaChi, String soDT, Date ngaySinh, int gioiTinh,
-			int trangThai) {
-		super();
-		this.ma = ma;
-		this.ho = ho;
-		this.ten = ten;
-		this.diaChi = diaChi;
-		this.soDT = soDT;
-		this.ngaySinh = ngaySinh;
-		this.gioiTinh = gioiTinh;
-		this.trangThai = trangThai;
+	public String getMaKH() {
+		return maKH;
 	}
 
-	public String getMa() {
-		return ma;
+	public static String getStaticMaKH() {
+		return Support.returnStringMaObject("KH", Ids);
 	}
 
-	public void setMa(String ma) {
-		this.ma = ma;
+	public void setMaKH(String maKH) {
+		this.maKH = maKH;
 	}
 
 	public String getHo() {
@@ -63,12 +103,64 @@ public class Person {
 		this.ten = ten;
 	}
 
+	public Date getNgaySinh() {
+		return ngaySinh;
+	}
+
+	public void setNgaySinh(Date ngaySinh) {
+		this.ngaySinh = ngaySinh;
+	}
+
+	public int getTrangThai() {
+		return trangThai;
+	}
+
+	public String getTrangThaiString() {
+		return Support.returnFromIntType(trangThai, 2);
+	}
+
+	public void setTrangThai(int trangThai) {
+		this.trangThai = trangThai;
+	}
+
+	public int getCapDo() {
+		return capDo;
+	}
+
+	public String getCapDoString() {
+		return Support.returnFromIntType(capDo, 3);
+	}
+
+	public void setCapDo(int capDo) {
+		this.capDo = capDo;
+	}
+
+	public int getDiemTichLuy() {
+		return diemTichLuy;
+	}
+
+	public void setDiemTichLuy(int diemTichLuy) {
+		this.diemTichLuy = diemTichLuy;
+	}
+
 	public String getDiaChi() {
 		return diaChi;
 	}
 
 	public void setDiaChi(String diaChi) {
 		this.diaChi = diaChi;
+	}
+
+	public int getGioiTinh() {
+		return gioiTinh;
+	}
+
+	public String getGioiTinhString() {
+		return Support.returnFromIntType(gioiTinh, 1);
+	}
+
+	public void setGioiTinh(int gioiTinh) {
+		this.gioiTinh = gioiTinh;
 	}
 
 	public String getSoDT() {
@@ -79,39 +171,12 @@ public class Person {
 		this.soDT = soDT;
 	}
 
-	public Date getNgaySinh() {
-		return ngaySinh;
-	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
 
-	public void setNgaySinh(Date ngaySinh) {
-		this.ngaySinh = ngaySinh;
-	}
-
-	public int getGioiTinhInt() {
-		return gioiTinh;
-	}
-
-	public String getGioiTinhString() {
-		return (this.gioiTinh == 0) ? "Nữ" : "Nam";
-	}
-
-	public void setGioiTinh(int gioiTinh) {
-		this.gioiTinh = gioiTinh;
-	}
-
-	public int getTrangThaiInt() {
-		return trangThai;
-	}
-
-	public String getTrangThaiString() {
-		return (this.trangThai == 0) ? "Khóa" : "Kích hoạt";
-	}
-
-	public void setTrangThai(int trangThai) {
-		this.trangThai = trangThai;
-	}
-
-	public String getHoTen() {
-		return this.ho + " " + this.ten;
+		return Support.returnStringFormat(this.getMaKH(), getHo() + " " + getTen(), getGioiTinhString(), getDiaChi(),
+				new SimpleDateFormat("dd/MM/yyyy").format(getNgaySinh()), getCapDoString(), getDiemTichLuy() + "",
+				getTrangThaiString());
 	}
 }

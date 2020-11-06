@@ -10,10 +10,9 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 @Entity()
 @Table(name = "tblkhachHang")
-public class KhachHang implements Serializable {
+public class KhachHang extends Person implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -48,7 +47,7 @@ public class KhachHang implements Serializable {
 	@Column(name = "trangThai")
 	private int trangThai;
 
-	private static int sId = 0;
+	private static int Ids = 0;
 
 	public KhachHang(String maKH, String ho, String ten, Date ngaySinh, int capDo, int diemTichLuy, String diaChi,
 			int gioiTinh, String soDT, int trangThai) {
@@ -70,8 +69,8 @@ public class KhachHang implements Serializable {
 		super();
 		// TODO Auto-generated constructor stub
 
-		this.ho = "";
-		this.ten = "";
+		this.ho = "Nguyen";
+		this.ten = "Test";
 		this.ngaySinh = Calendar.getInstance().getTime();
 		this.capDo = 0;
 		this.diemTichLuy = 0;
@@ -79,7 +78,7 @@ public class KhachHang implements Serializable {
 		this.gioiTinh = 0;
 		this.trangThai = 0;
 		this.soDT = "021";
-		KhachHang.sId++;
+		KhachHang.Ids++;
 		this.maKH = getStaticMaKH();
 	}
 
@@ -88,7 +87,7 @@ public class KhachHang implements Serializable {
 	}
 
 	public static String getStaticMaKH() {
-		return Support.returnStringMaObject("KD", sId);
+		return Support.returnStringMaObject("KH", Ids);
 	}
 
 	public void setMaKH(String maKH) {
@@ -188,4 +187,65 @@ public class KhachHang implements Serializable {
 				getTrangThaiString());
 	}
 
+//	@Id
+//	@Column(name = "MaKH")
+//	private String maKH;
+//
+//	@Column(name = "capDo")
+//	private int capDo;
+//
+//	@Column(name = "diemTichLuy")
+//	private int diemTichLuy;
+//
+//	public KhachHang() {
+//		super();
+//		// TODO Auto-generated constructor stub
+//	}
+//
+//	public KhachHang(String ho, String ten, Date ngaySinh, String diaChi, int gioiTinh, String soDT, int trangThai,
+//			String maKH, int capDo, int diemTichLuy) {
+//		super(ho, ten, ngaySinh, diaChi, gioiTinh, soDT, trangThai);
+//		// TODO Auto-generated constructor stub
+//		this.maKH = maKH;
+//		this.capDo = capDo;
+//		this.diemTichLuy = diemTichLuy;
+//	}
+//
+//	public String getMaKH() {
+//		return maKH;
+//	}
+//
+//	public void setMaKH(String maKH) {
+//		this.maKH = maKH;
+//	}
+//
+//	public int getCapDo() {
+//		return capDo;
+//	}
+//
+//	public void setCapDo(int capDo) {
+//		this.capDo = capDo;
+//	}
+//
+//	public int getDiemTichLuy() {
+//		return diemTichLuy;
+//	}
+//
+//	public void setDiemTichLuy(int diemTichLuy) {
+//		this.diemTichLuy = diemTichLuy;
+//	}
+//
+//	public String getCapDoString() {
+//		return Support.returnFromIntType(capDo, 3);
+//	}
+//
+//	@Override
+//	public String toString() {
+//		// TODO Auto-generated method stub
+//
+//		return Support.returnStringFormat(this.getMaKH(), getHo() + " " + getTen(), getGioiTinhString(), getDiaChi(),
+//				new SimpleDateFormat("dd/MM/yyyy").format(getNgaySinh()), getCapDoString(), getDiemTichLuy() + "",
+//				getTrangThaiString());
+//	}
+//
 }

@@ -7,30 +7,30 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.entities.LichSuGia;
-import com.example.demo.repository.LichSuGiaRepository;
+import com.example.demo.entities.ChuongTrinhKhuyenMai;
+import com.example.demo.repository.ChuongTrinhKhuyenMaiRepository;
 
-@Service("lichSuGiaService")
+@Service("chuongTrinhKhuyenMai")
 @Transactional
-public class LichSuGiaServiceImp implements BaseService<LichSuGia> {
+public class ChuongTrinhKhuyenMaiServiceImp implements BaseService<ChuongTrinhKhuyenMai> {
 
 	@Autowired
-	LichSuGiaRepository repo;
+	ChuongTrinhKhuyenMaiRepository repo;
 
 	@Override
-	public Iterable<LichSuGia> findAll() {
+	public Iterable<ChuongTrinhKhuyenMai> findAll() {
 		// TODO Auto-generated method stub
 		return repo.findAll();
 	}
 
 	@Override
-	public Optional<LichSuGia> find(String id) {
+	public Optional<ChuongTrinhKhuyenMai> find(String id) {
 		// TODO Auto-generated method stub
 		return repo.findById(id);
 	}
 
 	@Override
-	public void save(LichSuGia p) {
+	public void save(ChuongTrinhKhuyenMai p) {
 		// TODO Auto-generated method stub
 		repo.save(p);
 	}
@@ -40,7 +40,5 @@ public class LichSuGiaServiceImp implements BaseService<LichSuGia> {
 		// TODO Auto-generated method stub
 		repo.deleteById(id);
 	}
-
-	
 
 }

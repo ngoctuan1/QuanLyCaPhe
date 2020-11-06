@@ -22,6 +22,9 @@ public class HoaDonNhap implements Serializable {
 	@Column(name = "maHD")
 	private String maHD;
 
+	@Column(name = "maDH")
+	private String maDH;
+
 	@Column(name = "MaNCC")
 	private String maNCC;
 
@@ -39,9 +42,11 @@ public class HoaDonNhap implements Serializable {
 
 	private static int sId = 0;
 
-	public HoaDonNhap(String maHD, String maNCC, String maNV, Date ngayBanHang, int tongTien, int trangThai) {
+	public HoaDonNhap(String maHD, String maDH, String maNCC, String maNV, Date ngayBanHang, int tongTien,
+			int trangThai) {
 		super();
 		this.maHD = maHD;
+		this.maDH = maDH;
 		this.maNCC = maNCC;
 		this.maNV = maNV;
 		this.ngayNhapHang = ngayBanHang;
@@ -83,14 +88,6 @@ public class HoaDonNhap implements Serializable {
 		this.maNV = maNV;
 	}
 
-	public Date getNgayBanHang() {
-		return ngayNhapHang;
-	}
-
-	public void setNgayBanHang(Date ngayBanHang) {
-		this.ngayNhapHang = ngayBanHang;
-	}
-
 	public int getTongTien() {
 		return tongTien;
 	}
@@ -109,6 +106,22 @@ public class HoaDonNhap implements Serializable {
 
 	public void setTrangThai(int trangThai) {
 		this.trangThai = trangThai;
+	}
+
+	public String getMaDH() {
+		return maDH;
+	}
+
+	public void setMaDH(String maDH) {
+		this.maDH = maDH;
+	}
+
+	public Date getNgayNhapHang() {
+		return ngayNhapHang;
+	}
+
+	public void setNgayNhapHang(Date ngayNhapHang) {
+		this.ngayNhapHang = ngayNhapHang;
 	}
 
 	@Override
